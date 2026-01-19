@@ -354,70 +354,68 @@ export default function Home() {
       </AnimatePresence>
       
       {/* Cabeçalho */}
-      <header className="relative z-10 border-b border-cyan-500/20 bg-slate-900/80 backdrop-blur-xl">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
-                <Star className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h1 className="font-bold text-white">Academia da Frota Estelar</h1>
-                <p className="text-xs text-cyan-400">Ex Astris, Scientia</p>
-              </div>
+      <header className="relative z-10 border-b border-cyan-500/20 bg-slate-950/80 backdrop-blur-xl">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
+              <Star className="w-5 h-5 text-white" />
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-slate-400 hidden sm:block">
-                {myCadet.name}
-              </span>
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="text-slate-400 hover:text-red-400"
-                    title="Reiniciar Jogo"
+            <div>
+              <h1 className="font-bold text-white">Academia da Frota Estelar</h1>
+              <p className="text-xs text-cyan-400">Ex Astris, Scientia</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-sm text-slate-400 hidden sm:block">
+              {myCadet.name}
+            </span>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-slate-400 hover:text-red-400"
+                  title="Reiniciar Jogo"
+                >
+                  <RotateCcw className="w-5 h-5" />
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent className="bg-slate-900 border-red-500/30">
+                <AlertDialogHeader>
+                  <AlertDialogTitle className="text-white">Reiniciar Jogo?</AlertDialogTitle>
+                  <AlertDialogDescription className="text-slate-400">
+                    Isso apagará seu cadete atual, incluindo todos os níveis, habilidades, relacionamentos e progresso. Esta ação não pode ser desfeita.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel className="bg-slate-800 border-slate-700 text-slate-300">Cancelar</AlertDialogCancel>
+                  <AlertDialogAction 
+                    onClick={() => deleteCadetMutation.mutate()}
+                    className="bg-red-600 hover:bg-red-700"
                   >
-                    <RotateCcw className="w-5 h-5" />
-                  </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent className="bg-slate-900 border-red-500/30">
-                  <AlertDialogHeader>
-                    <AlertDialogTitle className="text-white">Reiniciar Jogo?</AlertDialogTitle>
-                    <AlertDialogDescription className="text-slate-400">
-                      Isso apagará seu cadete atual, incluindo todos os níveis, habilidades, relacionamentos e progresso. Esta ação não pode ser desfeita.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel className="bg-slate-800 border-slate-700 text-slate-300">Cancelar</AlertDialogCancel>
-                    <AlertDialogAction 
-                      onClick={() => deleteCadetMutation.mutate()}
-                      className="bg-red-600 hover:bg-red-700"
-                    >
-                      Reiniciar
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => base44.auth.logout()}
-                className="text-slate-400 hover:text-white"
-                title="Sair"
-              >
-                <LogOut className="w-5 h-5" />
-              </Button>
-            </div>
+                    Reiniciar
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => base44.auth.logout()}
+              className="text-slate-400 hover:text-white"
+              title="Sair"
+            >
+              <LogOut className="w-5 h-5" />
+            </Button>
           </div>
         </div>
       </header>
 
       {/* Conteúdo principal */}
-      <main className="relative z-10 container mx-auto px-4 py-6">
-        <div className="grid lg:grid-cols-3 gap-6">
+      <main className="relative z-10 mx-auto w-full max-w-6xl px-6 py-8">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,2fr)]">
           {/* Barra lateral - Perfil do cadete */}
-          <div className="lg:col-span-1">
+          <div className="lg:sticky lg:top-24 self-start">
             <CadetProfile 
               cadet={myCadet} 
               skills={skills}
@@ -426,22 +424,22 @@ export default function Home() {
           </div>
 
           {/* Area principal */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="space-y-6">
             <Tabs value={activeTab} onValueChange={setActiveTab}>
-              <TabsList className="bg-slate-900/80 border border-cyan-500/20">
-                <TabsTrigger value="missions" className="data-[state=active]:bg-cyan-500/20">
+              <TabsList className="bg-slate-900/70 border border-cyan-500/20 rounded-full p-1 shadow-lg shadow-cyan-500/10">
+                <TabsTrigger value="missions" className="data-[state=active]:bg-cyan-500/20 rounded-full px-4">
                   <Rocket className="w-4 h-4 mr-2" />
                   Missões
                 </TabsTrigger>
-                <TabsTrigger value="skills" className="data-[state=active]:bg-cyan-500/20">
+                <TabsTrigger value="skills" className="data-[state=active]:bg-cyan-500/20 rounded-full px-4">
                   <Sparkles className="w-4 h-4 mr-2" />
                   Habilidades
                 </TabsTrigger>
-                <TabsTrigger value="npcs" className="data-[state=active]:bg-cyan-500/20">
+                <TabsTrigger value="npcs" className="data-[state=active]:bg-cyan-500/20 rounded-full px-4">
                   <Users className="w-4 h-4 mr-2" />
                   Personagens
                 </TabsTrigger>
-                <TabsTrigger value="log" className="data-[state=active]:bg-cyan-500/20">
+                <TabsTrigger value="log" className="data-[state=active]:bg-cyan-500/20 rounded-full px-4">
                   <BookOpen className="w-4 h-4 mr-2" />
                   Diário
                 </TabsTrigger>
@@ -450,13 +448,13 @@ export default function Home() {
               {/* Acesso rápido a nave e inventário*/}
               <div className="mt-4 flex gap-2">
                 <Link to={createPageUrl('ShipAndInventory')}>
-                  <Button variant="outline" size="sm" className="border-cyan-500/30 text-cyan-400">
+                  <Button variant="outline" size="sm" className="border-cyan-500/30 text-cyan-400 rounded-full px-4">
                     <Rocket className="w-4 h-4 mr-2" />
                     Nave
                   </Button>
                 </Link>
                 <Link to={createPageUrl('ShipAndInventory')}>
-                  <Button variant="outline" size="sm" className="border-purple-500/30 text-purple-400">
+                  <Button variant="outline" size="sm" className="border-purple-500/30 text-purple-400 rounded-full px-4">
                     <Package className="w-4 h-4 mr-2" />
                     Inventário
                   </Button>

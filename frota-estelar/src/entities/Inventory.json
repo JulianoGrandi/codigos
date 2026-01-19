@@ -1,0 +1,65 @@
+{
+  "name": "Inventory",
+  "type": "object",
+  "properties": {
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string"
+          },
+          "resourceName": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "equipmentId": {
+            "type": "string"
+          },
+          "equipped": {
+            "type": "boolean"
+          },
+          "slot": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "consumables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string"
+          },
+          "itemName": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "effect": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "maxSlots": {
+      "type": "number",
+      "default": 50
+    }
+  },
+  "required": []
+}

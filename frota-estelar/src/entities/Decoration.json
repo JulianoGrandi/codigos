@@ -1,0 +1,51 @@
+{
+  "name": "Decoration",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "rarity": {
+      "type": "string",
+      "enum": [
+        "Comum",
+        "Incomum",
+        "Raro",
+        "\u00c9pico",
+        "Lend\u00e1rio"
+      ],
+      "default": "Comum"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Medalha",
+        "Comenda",
+        "Distintivo",
+        "Honraria"
+      ],
+      "default": "Medalha"
+    },
+    "bonuses": {
+      "type": "object",
+      "properties": {
+        "xpMultiplier": {
+          "type": "number"
+        },
+        "attributeBonus": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "description"
+  ]
+}

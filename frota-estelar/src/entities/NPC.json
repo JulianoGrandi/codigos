@@ -1,0 +1,85 @@
+{
+  "name": "NPC",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo ou cargo do NPC"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "instrutor",
+        "colega",
+        "amigo"
+      ],
+      "description": "Tipo de relacionamento"
+    },
+    "species": {
+      "type": "string"
+    },
+    "personality": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o da personalidade"
+    },
+    "avatar": {
+      "type": "string"
+    },
+    "dialogues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "responses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "effect": {
+                  "type": "string"
+                },
+                "relationshipChange": {
+                  "type": "number"
+                },
+                "nextDialogue": {
+                  "type": "string"
+                },
+                "givesMission": {
+                  "type": "string"
+                },
+                "givesAdvice": {
+                  "type": "string"
+                },
+                "requiredRelationship": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sideMissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ]
+}

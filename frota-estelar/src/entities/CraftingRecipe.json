@@ -1,0 +1,88 @@
+{
+  "name": "CraftingRecipe",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Equipamento",
+        "Consum\u00edvel",
+        "Upgrade de Nave",
+        "M\u00f3dulo",
+        "Especial"
+      ],
+      "default": "Equipamento"
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string"
+          },
+          "resourceName": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "resultType": {
+      "type": "string",
+      "enum": [
+        "Equipment",
+        "Consumable",
+        "ShipUpgrade",
+        "Resource"
+      ],
+      "default": "Equipment"
+    },
+    "resultId": {
+      "type": "string"
+    },
+    "resultName": {
+      "type": "string"
+    },
+    "resultQuantity": {
+      "type": "number",
+      "default": 1
+    },
+    "requiredLevel": {
+      "type": "number",
+      "default": 1
+    },
+    "requiredSkillId": {
+      "type": "string"
+    },
+    "craftingTime": {
+      "type": "number",
+      "default": 0,
+      "description": "Tempo em segundos"
+    },
+    "rarity": {
+      "type": "string",
+      "enum": [
+        "Comum",
+        "Incomum",
+        "Raro",
+        "\u00c9pico",
+        "Lend\u00e1rio"
+      ],
+      "default": "Comum"
+    }
+  },
+  "required": [
+    "name",
+    "ingredients",
+    "resultName"
+  ]
+}

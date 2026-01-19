@@ -1,0 +1,225 @@
+{
+  "name": "Cadet",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome do cadete"
+    },
+    "species": {
+      "type": "string",
+      "enum": [
+        "Humano",
+        "Vulcano",
+        "Andoriano",
+        "Betazoide",
+        "Trill",
+        "Bajoriano",
+        "Klingon",
+        "Meio-Vulcano"
+      ],
+      "description": "Esp\u00e9cie do cadete"
+    },
+    "division": {
+      "type": "string",
+      "enum": [
+        "Comando",
+        "Ci\u00eancias",
+        "Engenharia",
+        "M\u00e9dico",
+        "Seguran\u00e7a"
+      ],
+      "description": "Divis\u00e3o de especializa\u00e7\u00e3o"
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "logic": {
+          "type": "number"
+        },
+        "charisma": {
+          "type": "number"
+        },
+        "strength": {
+          "type": "number"
+        },
+        "agility": {
+          "type": "number"
+        },
+        "intelligence": {
+          "type": "number"
+        }
+      }
+    },
+    "level": {
+      "type": "number",
+      "default": 1
+    },
+    "xp": {
+      "type": "number",
+      "default": 0
+    },
+    "rank": {
+      "type": "string",
+      "enum": [
+        "Cadete 4\u00aa Classe",
+        "Cadete 3\u00aa Classe",
+        "Cadete 2\u00aa Classe",
+        "Cadete 1\u00aa Classe",
+        "Alferes",
+        "Tenente Junior",
+        "Tenente",
+        "Tenente Comandante",
+        "Comandante",
+        "Capit\u00e3o"
+      ],
+      "default": "Cadete 4\u00aa Classe"
+    },
+    "skillIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs das habilidades adquiridas"
+    },
+    "skillLevels": {
+      "type": "object",
+      "description": "N\u00edveis de cada habilidade por ID"
+    },
+    "specializationIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs das especializa\u00e7\u00f5es desbloqueadas"
+    },
+    "unspentSkillPoints": {
+      "type": "number",
+      "default": 0,
+      "description": "Pontos de habilidade n\u00e3o gastos"
+    },
+    "unspentAttributePoints": {
+      "type": "number",
+      "default": 0,
+      "description": "Pontos de atributo n\u00e3o distribu\u00eddos"
+    },
+    "totalAttributePointsEarned": {
+      "type": "number",
+      "default": 0
+    },
+    "completedMissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "activeMissionId": {
+      "type": "string",
+      "description": "ID da miss\u00e3o ativa"
+    },
+    "missionProgress": {
+      "type": "object",
+      "properties": {
+        "missionId": {
+          "type": "string"
+        },
+        "currentStep": {
+          "type": "number"
+        },
+        "choicesMade": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "startedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "avatar": {
+      "type": "string"
+    },
+    "backstory": {
+      "type": "object",
+      "properties": {
+        "homeworld": {
+          "type": "string"
+        },
+        "childhood": {
+          "type": "string"
+        },
+        "motivation": {
+          "type": "string"
+        },
+        "lifeEvents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "customDescription": {
+          "type": "string"
+        }
+      }
+    },
+    "traits": {
+      "type": "object",
+      "properties": {
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "flaws": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "decorations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Condecora\u00e7\u00f5es recebidas"
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Equipamentos obtidos"
+    },
+    "credits": {
+      "type": "number",
+      "default": 100,
+      "description": "Cr\u00e9ditos da Federa\u00e7\u00e3o"
+    },
+    "logEntries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "species",
+    "division"
+  ]
+}

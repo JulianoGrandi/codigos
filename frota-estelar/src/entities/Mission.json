@@ -1,0 +1,216 @@
+{
+  "name": "Mission",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "briefing": {
+      "type": "string",
+      "description": "Descri\u00e7\u00e3o detalhada da miss\u00e3o"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Explora\u00e7\u00e3o",
+        "Combate",
+        "Diplomacia",
+        "Pesquisa",
+        "Resgate",
+        "Defesa",
+        "Infiltra\u00e7\u00e3o",
+        "Treinamento"
+      ]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "Iniciante",
+        "F\u00e1cil",
+        "M\u00e9dio",
+        "Dif\u00edcil",
+        "Elite",
+        "Kobayashi Maru"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Dispon\u00edvel",
+        "Em Progresso",
+        "Completa",
+        "Falhou",
+        "Expirada"
+      ],
+      "default": "Dispon\u00edvel"
+    },
+    "requiredDivision": {
+      "type": "string"
+    },
+    "requiredLevel": {
+      "type": "number",
+      "default": 1
+    },
+    "requiredSkillIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendedAttributes": {
+      "type": "object",
+      "properties": {
+        "logic": {
+          "type": "number"
+        },
+        "charisma": {
+          "type": "number"
+        },
+        "strength": {
+          "type": "number"
+        },
+        "agility": {
+          "type": "number"
+        },
+        "intelligence": {
+          "type": "number"
+        }
+      }
+    },
+    "rewards": {
+      "type": "object",
+      "properties": {
+        "xp": {
+          "type": "number"
+        },
+        "skillPoints": {
+          "type": "number"
+        },
+        "credits": {
+          "type": "number"
+        },
+        "skillId": {
+          "type": "string"
+        },
+        "decorationId": {
+          "type": "string"
+        },
+        "equipmentId": {
+          "type": "string"
+        }
+      }
+    },
+    "xpReward": {
+      "type": "number"
+    },
+    "skillReward": {
+      "type": "string"
+    },
+    "objectives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "bonusXp": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "narrative": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "choices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "requiredAttribute": {
+                  "type": "string"
+                },
+                "requiredValue": {
+                  "type": "number"
+                },
+                "requiredSkillId": {
+                  "type": "string"
+                },
+                "outcome": {
+                  "type": "string"
+                },
+                "nextStep": {
+                  "type": "number"
+                },
+                "xpBonus": {
+                  "type": "number"
+                },
+                "relationshipChange": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "locationName": {
+      "type": "string"
+    },
+    "locationImage": {
+      "type": "string"
+    },
+    "estimatedDuration": {
+      "type": "string",
+      "description": "Dura\u00e7\u00e3o estimada (ex: 15min)"
+    },
+    "isRepeatable": {
+      "type": "boolean",
+      "default": false
+    },
+    "cooldownHours": {
+      "type": "number"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Normal",
+        "Urgente",
+        "Cr\u00edtica"
+      ],
+      "default": "Normal"
+    },
+    "storyArc": {
+      "type": "string",
+      "description": "Arco narrativo ao qual pertence"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "type",
+    "difficulty"
+  ]
+}

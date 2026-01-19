@@ -1,0 +1,54 @@
+{
+  "name": "Resource",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Material",
+        "Componente",
+        "Energia",
+        "Dados",
+        "Biol\u00f3gico",
+        "Raro"
+      ],
+      "default": "Material"
+    },
+    "rarity": {
+      "type": "string",
+      "enum": [
+        "Comum",
+        "Incomum",
+        "Raro",
+        "\u00c9pico",
+        "Lend\u00e1rio"
+      ],
+      "default": "Comum"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number",
+      "default": 10
+    },
+    "stackable": {
+      "type": "boolean",
+      "default": true
+    },
+    "maxStack": {
+      "type": "number",
+      "default": 99
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "name": "Ship",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nome da nave"
+    },
+    "class": {
+      "type": "string",
+      "enum": [
+        "Shuttle",
+        "Runabout",
+        "Frigate",
+        "Cruiser",
+        "Explorer"
+      ],
+      "default": "Shuttle"
+    },
+    "registry": {
+      "type": "string",
+      "description": "N\u00famero de registro (ex: NCC-1701)"
+    },
+    "hull": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "number",
+          "default": 100
+        },
+        "max": {
+          "type": "number",
+          "default": 100
+        }
+      }
+    },
+    "shields": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "number",
+          "default": 100
+        },
+        "max": {
+          "type": "number",
+          "default": 100
+        }
+      }
+    },
+    "power": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "number",
+          "default": 100
+        },
+        "max": {
+          "type": "number",
+          "default": 100
+        }
+      }
+    },
+    "warpCore": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "Online",
+            "Offline",
+            "Damaged",
+            "Critical"
+          ],
+          "default": "Online"
+        },
+        "efficiency": {
+          "type": "number",
+          "default": 100
+        }
+      }
+    },
+    "systems": {
+      "type": "object",
+      "properties": {
+        "weapons": {
+          "type": "number",
+          "default": 1
+        },
+        "shields": {
+          "type": "number",
+          "default": 1
+        },
+        "engines": {
+          "type": "number",
+          "default": 1
+        },
+        "sensors": {
+          "type": "number",
+          "default": 1
+        },
+        "lifesupport": {
+          "type": "number",
+          "default": 1
+        }
+      }
+    },
+    "crew": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "station": {
+            "type": "string"
+          },
+          "efficiency": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "cargo": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "type": "number",
+          "default": 50
+        },
+        "used": {
+          "type": "number",
+          "default": 0
+        }
+      }
+    },
+    "upgrades": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

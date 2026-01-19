@@ -1,0 +1,118 @@
+{
+  "name": "Skill",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Astrografia",
+        "Engenharia",
+        "Diplomacia",
+        "Combate",
+        "Ci\u00eancia",
+        "Medicina",
+        "Pilotagem",
+        "Comando"
+      ],
+      "description": "Categoria da habilidade"
+    },
+    "tier": {
+      "type": "number",
+      "default": 1,
+      "description": "N\u00edvel na \u00e1rvore de habilidades (1-4)"
+    },
+    "maxLevel": {
+      "type": "number",
+      "default": 5,
+      "description": "N\u00edvel m\u00e1ximo da habilidade"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "requiredLevel": {
+      "type": "number",
+      "default": 1
+    },
+    "requiredSkillIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs de habilidades pr\u00e9-requisito"
+    },
+    "requiredSkillLevels": {
+      "type": "object",
+      "description": "N\u00edveis m\u00ednimos das habilidades pr\u00e9-requisito"
+    },
+    "bonusesPerLevel": {
+      "type": "object",
+      "properties": {
+        "logic": {
+          "type": "number"
+        },
+        "charisma": {
+          "type": "number"
+        },
+        "strength": {
+          "type": "number"
+        },
+        "agility": {
+          "type": "number"
+        },
+        "intelligence": {
+          "type": "number"
+        },
+        "phaserDamage": {
+          "type": "number"
+        },
+        "shieldBoost": {
+          "type": "number"
+        },
+        "healingBoost": {
+          "type": "number"
+        },
+        "diplomacyBonus": {
+          "type": "number"
+        },
+        "pilotingBonus": {
+          "type": "number"
+        },
+        "xpBonus": {
+          "type": "number"
+        },
+        "criticalChance": {
+          "type": "number"
+        }
+      }
+    },
+    "rarity": {
+      "type": "string",
+      "enum": [
+        "Comum",
+        "Incomum",
+        "Raro",
+        "\u00c9pico",
+        "Lend\u00e1rio"
+      ],
+      "default": "Comum"
+    },
+    "isSpecialization": {
+      "type": "boolean",
+      "default": false
+    },
+    "specializationFor": {
+      "type": "string",
+      "description": "ID da habilidade base para especializa\u00e7\u00e3o"
+    }
+  },
+  "required": [
+    "name",
+    "category"
+  ]
+}

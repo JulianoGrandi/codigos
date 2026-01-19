@@ -1,0 +1,53 @@
+{
+  "name": "Relationship",
+  "type": "object",
+  "properties": {
+    "npcId": {
+      "type": "string",
+      "description": "ID do NPC"
+    },
+    "npcName": {
+      "type": "string"
+    },
+    "level": {
+      "type": "number",
+      "default": 0,
+      "description": "N\u00edvel de relacionamento (-100 a 100)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "hostil",
+        "desconfiado",
+        "neutro",
+        "amig\u00e1vel",
+        "aliado",
+        "melhor_amigo"
+      ],
+      "default": "neutro"
+    },
+    "interactionCount": {
+      "type": "number",
+      "default": 0
+    },
+    "lastInteraction": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "unlockedDialogues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "completedSideMissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "npcId"
+  ]
+}

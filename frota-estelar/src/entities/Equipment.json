@@ -1,0 +1,77 @@
+{
+  "name": "Equipment",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Phaser",
+        "Tricorder",
+        "Uniforme",
+        "Comunicador",
+        "Kit M\u00e9dico",
+        "Kit Engenharia",
+        "Acess\u00f3rio"
+      ],
+      "default": "Acess\u00f3rio"
+    },
+    "rarity": {
+      "type": "string",
+      "enum": [
+        "Comum",
+        "Incomum",
+        "Raro",
+        "\u00c9pico",
+        "Lend\u00e1rio"
+      ],
+      "default": "Comum"
+    },
+    "bonuses": {
+      "type": "object",
+      "properties": {
+        "logic": {
+          "type": "number"
+        },
+        "charisma": {
+          "type": "number"
+        },
+        "strength": {
+          "type": "number"
+        },
+        "agility": {
+          "type": "number"
+        },
+        "intelligence": {
+          "type": "number"
+        },
+        "combatPower": {
+          "type": "number"
+        },
+        "healingPower": {
+          "type": "number"
+        }
+      }
+    },
+    "requiredLevel": {
+      "type": "number",
+      "default": 1
+    },
+    "requiredDivision": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ]
+}

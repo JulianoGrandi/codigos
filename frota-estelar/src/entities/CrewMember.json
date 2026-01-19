@@ -1,0 +1,112 @@
+{
+  "name": "CrewMember",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "species": {
+      "type": "string"
+    },
+    "specialization": {
+      "type": "string",
+      "enum": [
+        "Pilotagem",
+        "T\u00e1tico",
+        "Engenharia",
+        "Ci\u00eancia",
+        "M\u00e9dico",
+        "Seguran\u00e7a",
+        "Opera\u00e7\u00f5es"
+      ],
+      "default": "Opera\u00e7\u00f5es"
+    },
+    "rank": {
+      "type": "string",
+      "default": "Tripulante"
+    },
+    "level": {
+      "type": "number",
+      "default": 1
+    },
+    "xp": {
+      "type": "number",
+      "default": 0
+    },
+    "skills": {
+      "type": "object",
+      "properties": {
+        "piloting": {
+          "type": "number",
+          "default": 1
+        },
+        "tactical": {
+          "type": "number",
+          "default": 1
+        },
+        "engineering": {
+          "type": "number",
+          "default": 1
+        },
+        "science": {
+          "type": "number",
+          "default": 1
+        },
+        "medical": {
+          "type": "number",
+          "default": 1
+        }
+      }
+    },
+    "morale": {
+      "type": "number",
+      "default": 100
+    },
+    "health": {
+      "type": "number",
+      "default": 100
+    },
+    "fatigue": {
+      "type": "number",
+      "default": 0
+    },
+    "assignedStation": {
+      "type": "string",
+      "description": "Posto atual na nave"
+    },
+    "traits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "personality": {
+      "type": "string"
+    },
+    "backstory": {
+      "type": "string"
+    },
+    "avatar": {
+      "type": "string"
+    },
+    "loyalty": {
+      "type": "number",
+      "default": 50
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Ativo",
+        "Ferido",
+        "Descansando",
+        "Em Miss\u00e3o",
+        "Indispon\u00edvel"
+      ],
+      "default": "Ativo"
+    }
+  },
+  "required": [
+    "name",
+    "specialization"
+  ]
+}

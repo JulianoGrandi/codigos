@@ -394,18 +394,18 @@ export default function CharacterCreationEnhanced({ onComplete }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-3xl">
+    <div className="min-h-screen flex items-center justify-center px-6 py-12 text-slate-200">
+      <div className="w-full max-w-2xl">
         {/* Progress Bar */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between text-sm text-slate-400 mb-2">
+        <div className="mb-8">
+          <div className="flex items-center justify-between text-xs uppercase tracking-wider text-slate-400 mb-3">
             <span>Passo {step} de {totalSteps}</span>
             <Button
               variant="ghost"
               size="sm"
               onClick={randomizeCharacter}
               disabled={isRandomizing}
-              className="text-amber-400 hover:text-amber-300"
+              className="text-amber-400 hover:text-amber-300 rounded-full px-3"
             >
               {isRandomizing ? (
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -415,11 +415,11 @@ export default function CharacterCreationEnhanced({ onComplete }) {
               Aleatório
             </Button>
           </div>
-          <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+          <div className="h-2 bg-slate-800/80 rounded-full overflow-hidden shadow-inner shadow-cyan-500/10">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${(step / totalSteps) * 100}%` }}
-              className="h-full bg-gradient-to-r from-cyan-500 to-blue-600"
+              className="h-full bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600"
             />
           </div>
         </div>
@@ -433,7 +433,7 @@ export default function CharacterCreationEnhanced({ onComplete }) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
             >
-              <LCARSPanel title="Identificação" color="blue">
+              <LCARSPanel title="Identificação" color="blue" className="shadow-2xl shadow-cyan-500/10">
                 <div className="space-y-6">
                   <div className="text-center mb-8">
                     <Sparkles className="w-12 h-12 mx-auto mb-4 text-cyan-400" />
@@ -450,7 +450,7 @@ export default function CharacterCreationEnhanced({ onComplete }) {
                       placeholder="Nome do Cadete"
                       value={cadet.name}
                       onChange={(e) => setCadet(prev => ({ ...prev, name: e.target.value }))}
-                      className="bg-slate-800/50 border-cyan-500/30 text-white text-center text-lg h-14"
+                      className="bg-slate-900/70 border-cyan-500/30 text-white text-center text-lg h-14 rounded-xl shadow-inner shadow-cyan-500/5 focus-visible:border-cyan-400/60 focus-visible:ring-cyan-500/40"
                     />
                   </div>
 
@@ -458,7 +458,7 @@ export default function CharacterCreationEnhanced({ onComplete }) {
                     <Button
                       onClick={() => setStep(2)}
                       disabled={!cadet.name.trim()}
-                      className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500"
+                      className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-full px-6"
                     >
                       Próximo <ChevronRight className="w-4 h-4 ml-2" />
                     </Button>
